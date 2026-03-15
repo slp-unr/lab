@@ -26,7 +26,7 @@ url                      : "https://slp-unr.github.io" # the base hostname & pro
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/slp_lab_logo1.png"
 masthead_title           : "SLP Lab @ UNR"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
@@ -113,18 +113,18 @@ analytics:
 
 # Site Author
 author:
-  name             : "SLP Lab"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Investigating human speech, linguistic structure, and multilingual language processing."
+  name             : "Santiago Arróniz, Ph.D."
+  avatar           : "/assets/images/slp_lab_logo1.png"
+  bio              : "Director, Speech and Language Processing Lab. World Languages & Literatures Department, University of Nevada, Reno."
   location         : "University of Nevada, Reno"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:slplab@unr.edu"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://www.unr.edu"
+      # url: "mailto:sarroniz@unr.edu"
+    - label: "World Languages & Literatures"
+      icon: "fas fa-fw fa-university"
+      url: "https://www.unr.edu/world-languages"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url: "https://github.com/slp-unr"
@@ -171,8 +171,6 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
 keep_files:
   - .git
   - .svn
