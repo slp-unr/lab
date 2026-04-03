@@ -4,17 +4,21 @@ author_profile: true
 title: "Speech and Language Processing Lab"
 ---
 
-Welcome to the **Speech and Language Processing (SLP) Lab** at the University of Nevada, Reno.
+Welcome to the SLP Lab at the University of Nevada, Reno — where human language meets computation.
 
-We investigate human speech, linguistic structure, and multilingual language processing using computational and experimental methods. Our work spans computational linguistics, psycholinguistics, and language documentation.
+We combine experimental methods, computational models, and linguistic analysis to explore how people produce, understand, and learn language across diverse languages and environments. Our projects tackle speech analysis, multilingual processing, language acquisition, and tools that make linguistic research reproducible and scalable.
 
-A few quick links:
+Highlights
 
-- Research
-- People
-- Publications
-- Contact
+- Interdisciplinary research bridging linguistics, cognitive science, and NLP
+- Emphasis on multilingual and under-resourced languages
+- Open data and reproducible experiments
 
-About the director: Santiago Arróniz, Ph.D. (listed here for reference as lab director and faculty in the World Languages & Literatures Department). For details about lab members, see the People page.
+Explore
+
+- [About](/about/) — Who we are and what we study
+- [Projects](/projects/) — Current research and collaborations
+- [News](/news/) — Publications, talks, and lab updates
+- [Contact](/contact/) — Get in touch or join the lab
 
 The SLP Lab is affiliated with the [World Languages & Literatures Department](https://www.unr.edu/world-languages) at the University of Nevada, Reno.
