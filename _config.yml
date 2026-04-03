@@ -113,9 +113,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Santiago Arróniz, Ph.D."
+  name             : "SLP Lab"
   avatar           : "/assets/images/slp_lab_logo1.png"
-  bio              : "Director, Speech and Language Processing Lab. World Languages & Literatures Department, University of Nevada, Reno."
+  bio              : "Investigating human speech, linguistic structure, and multilingual language processing."
   location         : "University of Nevada, Reno"
   email            :
   links:
