@@ -1,0 +1,95 @@
+# MOSAICO project data
+# Edit here to update the home page, the MOSAICO page and the internship page at once.
+
+# Internship application form (the QR code in assets/images/internship-apply-qr.png points here too)
+apply_url: "https://unr.az1.qualtrics.com/jfe/form/SV_6sWDVxwvwqnQK3A"
+
+name: "MOSAICO"
+expansion: "Multilingual Output and Sociolinguistic Analysis in Contact"
+summary: >-
+  A modular toolkit and corpus for the computational analysis of writing by
+  heritage speakers of Spanish.
+
+# status: active | planned | complete
+modules:
+  - number: 1
+    title: "Code-switching detection"
+    summary: >-
+      Tags each word for language and locates the points where a writer moves
+      between Spanish and English.
+    status: active
+    status_label: "In development, Spring 2027"
+  - number: 2
+    title: "Morphosyntactic contact features"
+    summary: >-
+      Identifies structures shaped by contact with English, such as patterns of
+      agreement, mood selection and preposition use.
+    status: planned
+  - number: 3
+    title: "Lexical profile"
+    summary: >-
+      Describes the vocabulary a writer draws on, including lexical diversity,
+      borrowings and calques.
+    status: planned
+  - number: 4
+    title: "Register variation"
+    summary: >-
+      Characterizes how writers move between informal and academic registers.
+    status: planned
+  - number: 5
+    title: "Dialectal features"
+    summary: >-
+      Detects features associated with regional varieties of Spanish.
+    status: planned
+  - number: 6
+    title: "Dashboard"
+    summary: >-
+      Brings the analyses together in an interactive profile of each writer's
+      linguistic repertoire.
+    status: planned
+
+roles:
+  - title: "Developer"
+    does: >-
+      Builds and tests the processing pipeline that tags and analyzes student
+      writing.
+    fit: >-
+      Computer science, data science or a related field, with some programming
+      experience, ideally in Python.
+  - title: "Linguist"
+    does: >-
+      Writes the annotation guidelines, annotates writing samples and checks
+      what the tools get right and wrong.
+    fit: >-
+      Spanish or linguistics students with coursework in Spanish linguistics.
+  - title: "Heritage language specialist"
+    does: >-
+      Brings first-hand knowledge of heritage Spanish to corpus design and
+      annotation, so the tools reflect how bilingual writers actually write.
+    fit: >-
+      Students who grew up with Spanish at home, including students in the
+      heritage language program.
+
+# Constructed example shown on the home page and the MOSAICO page.
+# Each token: [word, language]. A dashed rule is drawn wherever the language changes.
+example:
+  tokens:
+    - ["Mi", "es"]
+    - ["abuela", "es"]
+    - ["me", "es"]
+    - ["hablaba", "es"]
+    - ["en", "es"]
+    - ["español,", "es"]
+    - ["but", "en"]
+    - ["at", "en"]
+    - ["school", "en"]
+    - ["I", "en"]
+    - ["only", "en"]
+    - ["spoke", "en"]
+    - ["English,", "en"]
+    - ["entonces", "es"]
+    - ["lo", "es"]
+    - ["perdí", "es"]
+    - ["un", "es"]
+    - ["poquito.", "es"]
+  translation: "‘My grandmother spoke to me in Spanish, but at school I only spoke English, so I lost it a little.’"

@@ -1,0 +1,19 @@
+{%- comment -%}
+  List of posts, newest first. Params: limit (default 50), excerpts=true.
+{%- endcomment -%}
+{%- assign limit = include.limit | default: 50 -%}
+{%- if site.posts.size > 0 -%}
+<ul class="news-list">
+{%- for post in site.posts limit: limit %}
+<li>
+<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+<a class="news-list__title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+{%- if include.excerpts and post.excerpt %}
+<p>{{ post.excerpt | strip_html | strip_newlines | truncate: 240 }}</p>
+{%- endif %}
+</li>
+{%- endfor %}
+</ul>
+{%- else -%}
+<p class="news-empty">No news yet.</p>
+{%- endif -%}

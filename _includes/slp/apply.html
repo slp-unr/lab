@@ -1,0 +1,11 @@
+{%- comment -%} Internship application: Qualtrics form link + QR code (_data/mosaico.yml apply_url) {%- endcomment -%}
+<div class="apply">
+  <div>
+    <p>Apply by completing the online application form.<span class="apply__qr-hint"> You can also scan the QR code to open it on your phone.</span></p>
+    <p class="actions"><a class="btn btn--primary" href="{{ site.data.mosaico.apply_url }}" target="_blank" rel="noopener">Open the application form</a></p>
+  </div>
+  <figure class="apply__qr">
+    <img src="{{ '/assets/images/internship-apply-qr.png' | relative_url }}" alt="QR code linking to the MOSAICO internship application form" width="140" height="140">
+    <figcaption>Scan to apply</figcaption>
+  </figure>
+</div>

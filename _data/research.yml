@@ -1,0 +1,18 @@
+# Research areas, shown on the home page and the About page.
+areas:
+  - title: "Speech production and perception"
+    text: >-
+      How speakers produce and perceive the sounds of Spanish and English, and
+      how pronunciation varies across speakers, dialects and speaking styles.
+      We use acoustic analysis and production experiments, both in the lab and
+      online.
+  - title: "Language variation and contact"
+    text: >-
+      How Spanish varies across communities, and how bilingual speakers,
+      including heritage speakers in the United States, combine Spanish and
+      English in speech and in writing.
+  - title: "Computational methods and tools"
+    text: >-
+      Corpora, annotation schemes and language processing tools that make
+      linguistic analysis reproducible and scalable, shared openly with other
+      researchers.

@@ -1,61 +1,267 @@
-// Custom spacing and layout overrides for SLP Lab
+/* ==========================================================================
+   SLP Lab: theme-wide overrides for Minimal Mistakes
+   (base typography, links, masthead, buttons, footer)
+   ========================================================================== */
 
-// Global readability
+/* Base
+   ========================================================================== */
+
 body {
-  line-height: 1.75;
+  font-family: $slp-serif;
+  color: $slp-ink;
+  line-height: $lh-body;
+  background: $slp-paper;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-// Increase main container width slightly for lab content
-.container, .site-container {
-  max-width: 1100px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $slp-serif;
+  font-weight: 600;
+  color: $slp-ink;
+  line-height: $lh-head;
 }
 
-// Give more breathing room between page sections
-.page__inner,
-.site-main {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+h1 { font-size: $fs-xl; }
+h2 { font-size: $fs-lg; }
+h3 { font-size: $fs-md; }
+h4, h5, h6 { font-size: $fs-base; }
+
+p,
+li,
+dd {
+  hyphens: manual;
+  text-wrap: pretty; /* avoid one-word last lines */
 }
 
-.page__content {
-  padding-bottom: 2rem;
+h1,
+h2,
+h3 {
+  text-wrap: balance; /* even line lengths in multi-line headings */
 }
 
-// Sidebar spacing
-.author-profile,
-.site-sidebar {
-  padding: 1.25rem 0.5rem;
+a {
+  color: $slp-indigo;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba($slp-indigo, 0.4);
+
+  &:visited {
+    color: $slp-indigo;
+  }
+
+  &:hover {
+    color: $slp-indigo-dark;
+    text-decoration-color: currentColor;
+  }
 }
 
-// Headings spacing
-h1, h2, h3, h4 {
-  margin-top: 1.1rem;
-  margin-bottom: 0.7rem;
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid $slp-indigo;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-// Paragraph spacing
-p {
-  margin-bottom: 1.05rem;
+::selection {
+  background: $slp-lavender-deep;
+  color: $slp-ink;
 }
 
-// List spacing
-ul, ol {
-  margin-top: 0.6rem;
-  margin-bottom: 1rem;
+hr {
+  border: 0;
+  border-top: 1px solid $slp-rule;
+  margin: 2.5em 0;
 }
 
-// Slightly loosen the masthead area
-.masthead, .site-nav {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+blockquote {
+  margin: 1.5em 0;
+  padding-inline-start: 1.1em;
+  border-inline-start: 3px solid $slp-lavender-deep;
+  font-style: italic;
+  color: $slp-ink;
 }
 
-// Card and widget padding
-.card, .card-block, .widget {
-  padding: 0.9rem 1rem;
+/* Masthead
+   ========================================================================== */
+
+.masthead {
+  background: $slp-paper;
+  border-bottom: 1px solid $slp-rule;
 }
 
-// Improve readability for author/profile box by increasing line-height
-.author-profile p, .author-profile .bio {
-  line-height: 1.5;
+.masthead__inner-wrap {
+  max-width: $slp-wrap;
+  padding: 0.8rem 1rem;
+  font-family: $slp-sans;
+}
+
+.greedy-nav {
+  background: transparent;
+  min-height: 3rem;
+
+  a.site-logo {
+    margin-inline-end: 0.7rem;
+  }
+
+  .visible-links a {
+    margin: 0 0.75rem;
+    padding: 0.35rem 0;
+    font-family: $slp-sans;
+    font-weight: 500;
+    font-size: $fs-sm;
+    color: $slp-ink;
+
+    &:hover {
+      color: $slp-indigo;
+    }
+
+    &:before {
+      height: 2px;
+      background: $slp-indigo;
+    }
+
+    &[aria-current="page"] {
+      color: $slp-indigo;
+
+      &:before {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .hidden-links a {
+    font-family: $slp-sans;
+    color: $slp-ink;
+  }
+}
+
+.site-logo img {
+  height: 3.05rem;
+  max-height: none;
+  width: auto;
+}
+
+/* Masthead repeats the logo lockup: [SLP] + two-line name + university */
+.site-title {
+  flex-direction: column;
+  justify-content: center;
+  max-width: 10.5em;
+  font-family: $slp-serif;
+  font-weight: 600;
+  font-size: $fs-base;
+  line-height: 1.1;
+  color: $slp-ink;
+}
+
+.site-subtitle {
+  margin-top: 0.3em;
+  letter-spacing: 0;
+  font-family: $slp-sans;
+  font-weight: 400;
+  font-size: $fs-xs;
+  line-height: 1.2;
+  color: $slp-muted;
+}
+
+.greedy-nav__toggle .navicon,
+.greedy-nav__toggle .navicon:before,
+.greedy-nav__toggle .navicon:after {
+  background: $slp-ink;
+}
+
+/* Buttons
+   ========================================================================== */
+
+.btn {
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  font-weight: 500;
+  line-height: 1.3;
+  padding: 0.6em 1.15em;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn--primary,
+.btn--primary:visited {
+  background: $slp-indigo;
+  color: #fff;
+  border: 1px solid $slp-indigo;
+
+  &:hover {
+    background: $slp-indigo-dark;
+    border-color: $slp-indigo-dark;
+    color: #fff;
+  }
+}
+
+.btn--quiet,
+.btn--quiet:visited {
+  background: transparent;
+  color: $slp-indigo;
+  border: 1px solid rgba($slp-indigo, 0.45);
+
+  &:hover {
+    background: $slp-paper;
+    border-color: $slp-indigo;
+    color: $slp-indigo-dark;
+  }
+}
+
+/* Footer
+   ========================================================================== */
+
+.page__footer {
+  margin-top: 0;
+  background: $slp-ink;
+  color: #c4c3da;
+
+  footer {
+    max-width: $slp-wrap;
+    margin-top: 0;
+    padding: 2.75rem 1rem 2rem;
+  }
+
+  a {
+    color: #ecebf6;
+  }
+
+  .fas,
+  .fab,
+  .far,
+  .fal {
+    color: #a9a8c4;
+  }
+}
+
+.page__footer-follow {
+  font-family: $slp-sans;
+  font-size: 0.85rem;
+
+  .social-icons {
+    text-transform: none;
+  }
+
+  li {
+    margin-inline-end: 1.1em;
+    font-family: $slp-sans;
+    font-size: 0.85rem;
+    text-transform: none;
+  }
+}
+
+.page__footer-copyright {
+  font-family: $slp-sans;
+  font-size: 0.78rem;
+  color: #a9a8c4;
 }

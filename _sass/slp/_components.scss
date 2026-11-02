@@ -1,0 +1,880 @@
+/* ==========================================================================
+   SLP Lab layouts and components
+   ========================================================================== */
+
+/* Shared wrappers
+   ========================================================================== */
+
+#main.slp-home,
+#main.slp-page {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wrap {
+  max-width: $slp-wrap;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 1.5rem;
+  }
+}
+
+.sans {
+  font-family: $slp-sans;
+}
+
+/* Generic prose inside inner pages. Kept first so that component rules
+   below, with equal or higher specificity, take precedence. */
+.doc__content {
+  max-width: $slp-measure;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  h2 {
+    margin: 2.75rem 0 0.75rem;
+    font-size: $fs-lg;
+  }
+
+  h3 {
+    margin: 2rem 0 0.4rem;
+    font-size: $fs-md;
+  }
+
+  ul,
+  ol {
+    padding-inline-start: 1.3em;
+  }
+
+  li {
+    margin-bottom: 0.35em;
+  }
+
+  .ling-ex {
+    margin: 2rem 0 1.5rem;
+  }
+}
+
+/* Home: hero
+   ========================================================================== */
+
+.hero {
+  padding: 2.25rem 0 2.75rem;
+
+  @media (min-width: 900px) {
+    padding: 3.75rem 0 3.5rem;
+  }
+}
+
+.hero__title {
+  margin: 0;
+  max-width: 12em;
+  font-size: $fs-xl;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+
+  @media (min-width: 768px) {
+    font-size: $fs-2xl;
+  }
+}
+
+.hero__affil {
+  margin: 0.6rem 0 0;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  color: $slp-muted;
+}
+
+.hero__lead {
+  margin-top: 1.25rem;
+  max-width: $slp-measure;
+  font-size: $fs-md;
+  line-height: $lh-lead;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Linguistic example with word-level language tags
+   ========================================================================== */
+
+.ling-ex {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0 0.6rem;
+  margin: 2.5rem 0 0;
+  padding: 1.5rem 1.25rem 1.35rem 0.9rem;
+  background: $slp-lavender;
+  border-radius: 6px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    padding: 1.75rem 2rem 1.6rem 1.25rem;
+  }
+}
+
+.ling-ex__num {
+  padding-top: 0.1em;
+  font-size: $fs-md;
+  color: $slp-muted;
+  font-variant-numeric: lining-nums;
+}
+
+.ling-ex__tokens {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem 0.45rem;
+  font-size: $fs-base;
+
+  @media (min-width: 768px) {
+    font-size: $fs-md;
+  }
+}
+
+.tok {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tok__w {
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.tok--en .tok__w {
+  font-style: italic;
+}
+
+.tok__t {
+  position: relative;
+  margin-top: 0.3rem;
+  padding-top: 0.35rem;
+  font-family: $slp-sans;
+  font-size: $fs-xs;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: currentColor;
+    transform-origin: left center;
+  }
+}
+
+.tok--es .tok__t {
+  color: $slp-indigo;
+}
+
+.tok--en .tok__t {
+  color: $slp-teal;
+}
+
+.cs-switch {
+  align-self: stretch;
+  width: 0;
+  margin: 0 0.3em;
+  border-inline-start: 1.5px dashed rgba($slp-ink, 0.55);
+}
+
+.ling-ex__gloss {
+  margin: 1.1rem 0 0;
+  max-width: $slp-measure;
+  font-size: $fs-base;
+  line-height: $lh-lead;
+  text-wrap: pretty;
+}
+
+.ling-ex__caption {
+  margin: 0.6rem 0 0;
+  max-width: $slp-measure;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  line-height: 1.45;
+  color: $slp-muted;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ling-ex--animate .tok__t {
+    animation: slp-tag-fade 0.3s ease-out both;
+    animation-delay: calc(var(--i) * 55ms + 300ms);
+
+    &:before {
+      animation: slp-tag-draw 0.35s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+      animation-delay: calc(var(--i) * 55ms + 300ms);
+    }
+  }
+
+  .ling-ex--animate .cs-switch {
+    animation: slp-tag-fade 0.4s ease-out both;
+    animation-delay: calc(var(--i) * 55ms + 400ms);
+  }
+}
+
+@keyframes slp-tag-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slp-tag-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Home: content bands
+   ========================================================================== */
+
+.band {
+  padding: 2.5rem 0;
+  border-top: 1px solid $slp-rule;
+
+  @media (min-width: 900px) {
+    padding: 3.75rem 0;
+  }
+}
+
+.band--tint {
+  background: $slp-lavender;
+  border-top: 0;
+
+  + .band {
+    border-top: 0;
+  }
+}
+
+.band__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem 3rem;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 12rem minmax(0, 1fr);
+  }
+}
+
+.band__head {
+  h2 {
+    margin: 0;
+    font-size: $fs-lg;
+  }
+}
+
+.band__body {
+  max-width: $slp-measure;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-size: $fs-md;
+  }
+}
+
+.band__body .project-name {
+  margin: 0;
+  font-size: $fs-md;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+
+.project-expansion {
+  margin: 0.2rem 0 1rem;
+  font-style: italic;
+  font-size: $fs-base;
+  color: $slp-muted;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
+  margin: 1.5rem 0 0;
+
+  .btn {
+    margin: 0;
+  }
+}
+
+/* Research areas
+   ========================================================================== */
+
+.areas {
+  margin: 0 0 1.25em;
+
+  dt {
+    margin-top: 1.25rem;
+    font-size: $fs-base;
+    font-weight: 600;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  dd {
+    margin: 0.2em 0 0;
+  }
+}
+
+/* MOSAICO modules
+   ========================================================================== */
+
+ol.modules {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+  display: grid;
+  gap: 1.4rem 2.25rem;
+
+  > li {
+    margin: 0;
+  }
+}
+
+.modules--compact {
+  gap: 1rem 2rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.module {
+  display: grid;
+  grid-template-columns: 0.9rem minmax(0, 1fr);
+  gap: 0 0.85rem;
+  align-items: start;
+}
+
+.module__tile {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 0.3rem;
+  border: 2px solid $slp-indigo;
+  border-radius: 2px;
+}
+
+.module--active .module__tile {
+  background: $slp-indigo;
+}
+
+.module .module__title {
+  margin: 0;
+  font-size: $fs-base;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.module__num {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: $slp-muted;
+}
+
+.module__summary {
+  margin: 0.3rem 0 0;
+}
+
+.module__status {
+  margin: 0.25rem 0 0;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  color: $slp-muted;
+}
+
+.module--active .module__status {
+  color: $slp-indigo;
+  font-weight: 500;
+}
+
+/* News list
+   ========================================================================== */
+
+ul.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1rem 1.25rem;
+    margin: 0;
+    padding: 1rem 0;
+    border-top: 1px solid $slp-rule;
+
+    &:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    @media (min-width: 600px) {
+      grid-template-columns: 7rem minmax(0, 1fr);
+    }
+  }
+
+  time {
+    padding-top: 0.15em;
+    font-family: $slp-sans;
+    font-size: $fs-sm;
+    color: $slp-muted;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .news-list__title {
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0.3rem 0 0;
+    font-size: $fs-base;
+    color: $slp-muted;
+
+    @media (min-width: 600px) {
+      grid-column: 2;
+    }
+  }
+}
+
+.news-empty {
+  color: $slp-muted;
+  font-style: italic;
+}
+
+/* Inner pages
+   ========================================================================== */
+
+.doc__header {
+  padding: 2.25rem 0 1.9rem;
+  margin-bottom: 2.25rem;
+  border-bottom: 1px solid $slp-rule;
+
+  @media (min-width: 900px) {
+    padding: 3.25rem 0 2.4rem;
+  }
+}
+
+.doc__title {
+  margin: 0;
+  max-width: 20em;
+  font-size: $fs-xl;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+
+  /* Same size as the home title, one clear step above section headings */
+  @media (min-width: 768px) {
+    font-size: $fs-2xl;
+  }
+}
+
+.doc__subtitle {
+  margin: 0.4rem 0 0;
+  font-size: $fs-md;
+  font-style: italic;
+  color: $slp-muted;
+}
+
+.doc__date {
+  margin: 0.75rem 0 0;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  color: $slp-muted;
+  font-variant-numeric: lining-nums;
+}
+
+.doc__lead {
+  margin-top: 1rem;
+  max-width: 52rem; /* runs across the header: one continuous line when it fits */
+  font-size: $fs-md;
+  line-height: $lh-lead;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.doc__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem 3.5rem;
+  padding-bottom: 4rem;
+
+  /* Left rail on wide screens: holds the page index when there is one, and
+     keeps body text on the same left edge on every page and on the home page */
+  @media (min-width: 1024px) {
+    grid-template-columns: 11.5rem minmax(0, 1fr);
+
+    .doc__content {
+      grid-column: 2;
+    }
+  }
+}
+
+.doc__toc {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    font-family: $slp-sans;
+    font-size: $fs-sm;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-inline-start: 1px solid $slp-rule;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    padding: 0.3em 0 0.3em 0.9em;
+    color: $slp-muted;
+    text-decoration: none;
+
+    &:hover {
+      color: $slp-indigo;
+    }
+  }
+}
+
+.doc__toc-title {
+  margin: 0 0 0.6em;
+  font-weight: 500;
+  color: $slp-ink;
+}
+
+.doc__back {
+  margin: 3rem 0 0;
+  font-family: $slp-sans;
+}
+
+/* Fact table (definition list) */
+.facts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 1.5rem;
+  margin: 0 0 1.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid $slp-rule;
+  border-bottom: 1px solid $slp-rule;
+
+  @media (min-width: 600px) {
+    grid-template-columns: 9rem minmax(0, 1fr);
+  }
+
+  dt {
+    padding-top: 0.6rem;
+    font-family: $slp-sans;
+    font-size: $fs-sm;
+    font-weight: 500;
+    color: $slp-muted;
+
+    @media (min-width: 600px) {
+      padding: 0.6rem 0 0.5rem;
+    }
+  }
+
+  dd {
+    margin: 0;
+    padding: 0 0 0.6rem;
+
+    @media (min-width: 600px) {
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+/* Internship roles */
+.roles {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.role {
+  padding-inline-start: 1.1rem;
+  border-inline-start: 3px solid $slp-indigo;
+
+  h3 {
+    margin: 0 0 0.3rem;
+    font-size: $fs-md;
+  }
+
+  p {
+    margin: 0 0 0.45rem;
+  }
+}
+
+.role__fit {
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  color: $slp-muted;
+}
+
+/* Timeline (a real sequence of semesters) */
+ol.timeline {
+  list-style: none;
+  margin: 1em 0 1.75em;
+  padding: 0;
+
+  > li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.15rem 1.25rem;
+    margin: 0;
+    padding: 0.9rem 0;
+    border-top: 1px solid $slp-rule;
+
+    @media (min-width: 600px) {
+      grid-template-columns: 9rem minmax(0, 1fr);
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $slp-rule;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.timeline__when {
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  padding-top: 0.15em;
+  font-weight: 500;
+  color: $slp-indigo;
+}
+
+/* People */
+.person {
+  margin: 0 0 1.75rem;
+
+  h3 {
+    margin: 0;
+    font-size: $fs-md;
+  }
+}
+
+.person__role {
+  margin: 0.15rem 0 0.35rem;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+
+  + p {
+    margin-top: 0;
+  }
+  color: $slp-muted;
+}
+
+/* Projects list */
+.project {
+  padding: 1.75rem 0;
+  border-top: 1px solid $slp-rule;
+
+  &:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  h2 {
+    margin: 0 0 0.3rem !important;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.project__status {
+  margin: 0 0 0.6rem;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+  color: $slp-muted;
+}
+
+/* Callout used at the end of pages */
+.callout {
+  margin: 2.5em 0 0;
+  padding: 1.4em 1.5em;
+  background: $slp-lavender;
+  border-radius: 6px;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h2,
+  h3 {
+    margin-top: 0;
+  }
+}
+
+/* Footer identity block
+   ========================================================================== */
+
+.slp-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  padding-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(#fff, 0.14);
+
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  p {
+    margin: 0;
+    font-family: $slp-sans;
+    font-size: $fs-sm;
+    line-height: 1.5;
+  }
+}
+
+.slp-footer__id {
+  display: flex;
+  gap: 0.95rem;
+  align-items: flex-start;
+
+  img {
+    width: auto;
+    height: 2.6rem;
+    margin-top: 0.1rem;
+    flex: none;
+  }
+}
+
+.slp-footer .slp-footer__name {
+  margin-bottom: 0.2em;
+  font-family: $slp-serif;
+  font-size: $fs-md;
+  font-weight: 600;
+  color: #fff;
+}
+
+.slp-footer__links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 1.4em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: $slp-sans;
+  font-size: $fs-sm;
+
+  li {
+    margin: 0;
+  }
+}
+
+/* 404 */
+.not-found {
+  padding-bottom: 4rem;
+}
+
+/* Internship application: form link + QR code */
+.apply {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem 2rem;
+  align-items: center;
+  margin: 1.25rem 0 0.5rem;
+  padding: 1.4rem 1.5rem;
+  background: $slp-lavender;
+  border-radius: 6px;
+
+  @media (min-width: 600px) {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  p {
+    margin: 0 0 0.8rem;
+  }
+
+  .actions {
+    margin: 0;
+  }
+}
+
+.apply .apply__qr {
+  display: none;
+  margin: 0;
+  text-align: center;
+
+  /* No point showing a QR code on the phone that would have to scan it */
+  @media (min-width: 600px) {
+    display: block;
+  }
+
+  img {
+    display: block;
+    width: 140px;
+    height: 140px;
+    image-rendering: pixelated;
+    border-radius: 4px;
+  }
+
+  figcaption {
+    margin-top: 0.4rem;
+    font-family: $slp-sans;
+    font-size: $fs-xs;
+    color: $slp-muted;
+  }
+}
+
+.apply__qr-hint {
+  display: none;
+
+  @media (min-width: 600px) {
+    display: inline;
+  }
+}

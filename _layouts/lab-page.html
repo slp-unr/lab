@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+{%- assign is_post = false -%}
+{%- if page.collection == "posts" -%}{%- assign is_post = true -%}{%- endif -%}
+
+<div id="main" role="main" class="slp-page{% if page.toc %} slp-page--toc{% endif %}">
+  <article class="wrap" itemscope itemtype="https://schema.org/{% if is_post %}BlogPosting{% else %}WebPage{% endif %}">
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | strip_html | escape_once }}">{% endif %}
+    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+
+    <header class="doc__header">
+      <h1 class="doc__title">{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="doc__subtitle">{{ page.subtitle }}</p>{% endif %}
+      {% if is_post %}<p class="doc__date"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time></p>{% endif %}
+      {% if page.lead %}<div class="doc__lead">{{ page.lead | markdownify }}</div>{% endif %}
+    </header>
+
+    <div class="doc__grid">
+      {% if page.toc %}
+      <aside class="doc__toc">
+        <nav aria-labelledby="toc-title">
+          <p class="doc__toc-title" id="toc-title">On this page</p>
+          {% include toc.html html=content sanitize=true h_min=2 h_max=2 class="toc-list" skip_no_ids=true %}
+        </nav>
+      </aside>
+      {% endif %}
+
+      <div class="doc__content" itemprop="{% if is_post %}articleBody{% else %}mainContentOfPage{% endif %}">
+        {{ content }}
+        {% if is_post %}<p class="doc__back"><a href="{{ '/news/' | relative_url }}">All news</a></p>{% endif %}
+      </div>
+    </div>
+  </article>
+</div>

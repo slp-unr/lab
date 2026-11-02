@@ -1,0 +1,7 @@
+{%- comment -%} Research areas from _data/research.yml {%- endcomment -%}
+<dl class="areas">
+{%- for a in site.data.research.areas %}
+<dt>{{ a.title }}</dt>
+<dd>{{ a.text }}</dd>
+{%- endfor %}
+</dl>

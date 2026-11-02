@@ -1,0 +1,19 @@
+{%- comment -%}
+  MOSAICO modules from _data/mosaico.yml.
+  Params: compact=true (titles and status only, two columns), level=3|4 (heading level).
+{%- endcomment -%}
+{%- assign level = include.level | default: 3 -%}
+<ol class="modules{% if include.compact %} modules--compact{% endif %}">
+{%- for m in site.data.mosaico.modules %}
+<li class="module module--{{ m.status }}">
+<span class="module__tile" aria-hidden="true"></span>
+<div>
+<h{{ level }} class="module__title"><span class="module__num">Module {{ m.number }}<span class="sr-only">:</span></span> {{ m.title }}</h{{ level }}>
+{%- unless include.compact %}
+<p class="module__summary">{{ m.summary }}</p>
+{%- endunless %}
+<p class="module__status">{% if m.status_label %}{{ m.status_label }}{% elsif m.status == "complete" %}Complete{% else %}Planned{% endif %}</p>
+</div>
+</li>
+{%- endfor %}
+</ol>

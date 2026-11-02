@@ -1,0 +1,8 @@
+{%- comment -%} Lab members from _data/people.yml {%- endcomment -%}
+{%- for p in site.data.people.members %}
+<div class="person">
+<h3>{{ p.name }}</h3>
+<p class="person__role">{{ p.role }}</p>
+<p>{{ p.bio | escape }}{% if p.email and p.email != "" %} <a href="mailto:{{ p.email }}">{{ p.email }}</a>{% endif %}</p>
+</div>
+{%- endfor %}

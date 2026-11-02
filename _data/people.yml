@@ -1,0 +1,16 @@
+# Lab members, shown on the About page in this order.
+# To add someone, copy the commented example below and fill it in.
+members:
+  - name: "Santiago Arróniz"
+    role: "Lab director"
+    bio: >-
+      Assistant Professor of Hispanic and Computational Linguistics in the
+      Department of World Languages & Literatures. His research covers
+      phonetics and phonology, sociolinguistics and computational linguistics.
+    email: "sarroniz@unr.edu"
+
+#  - name: "First Last"
+#    role: "MOSAICO Intern, Spring 2027"
+#    bio: >-
+#      Major and year. One or two sentences about their work in the lab.
+#    email: ""

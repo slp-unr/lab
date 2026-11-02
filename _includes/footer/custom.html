@@ -1,3 +1,18 @@
 <!-- start custom footer snippets -->
-
+<div class="slp-footer">
+  <div class="slp-footer__id">
+    <img src="{{ '/assets/images/logo/slp-mark-reverse.svg' | relative_url }}" alt="" width="62" height="42">
+    <div>
+      <p class="slp-footer__name">Speech and Language Processing Lab</p>
+      <p>Department of World Languages &amp; Literatures<br>University of Nevada, Reno</p>
+    </div>
+  </div>
+  <nav class="slp-footer__links" aria-label="Footer">
+    <ul>
+      {%- for link in site.data.navigation.main %}
+      <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</div>
 <!-- end custom footer snippets -->

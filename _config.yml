@@ -12,27 +12,27 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "aqua" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "The SLP Lab"
 title_separator          : "-"
-subtitle                 : "Speech and Language Processing Lab"
+subtitle                 : "University of Nevada, Reno"
 name                     : "SLP Lab at UNR"
-description              : "The SLP Lab at UNR investigates human speech, linguistic structure, and multilingual language processing using computational and experimental methods."
+description              : "The Speech and Language Processing Lab at the University of Nevada, Reno studies speech, language variation and Spanish–English bilingualism with experimental and computational methods. Home of MOSAICO, a project on heritage Spanish writing."
 url                      : "https://slp-unr.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+baseurl                  : "/lab" # the subpath of your site, e.g. "/blog"
+repository               : "slp-unr/lab" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/slp_lab_logo1.png"
-masthead_title           : "SLP Lab @ UNR"
+logo                     : "/assets/images/logo/slp-mark.svg"
+masthead_title           : "Speech and Language Processing Lab"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
 copyright                : # "copyright" name, defaults to site.title
-copyright_url            : # "copyright" URL, defaults to site.url
+copyright_url            : "https://slp-unr.github.io/lab" # "copyright" URL, defaults to site.url
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
@@ -68,7 +68,7 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
-search                   : true
+search                   : false
 search_full_content      : true
 search_provider          : # lunr (default), algolia, google
 lunr:
@@ -95,7 +95,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : "/assets/images/logo/og-image.png" # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -114,27 +114,27 @@ analytics:
 # Site Author
 author:
   name             : "SLP Lab"
-  avatar           : "/assets/images/slp_lab_logo1.png"
-  bio              : "Investigating human speech, linguistic structure, and multilingual language processing."
+  avatar           : "/assets/images/slp_lab_mark.png"
+  bio              : "How people produce, perceive and use language, with a focus on Spanish and Spanish–English bilingualism."
   location         : "University of Nevada, Reno"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:sarroniz@unr.edu"
+      url: "mailto:sarroniz@unr.edu"
     - label: "World Languages & Literatures"
       icon: "fas fa-fw fa-university"
       url: "https://www.unr.edu/world-languages"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/slp-unr"
+      url: "https://github.com/slp-unr"
 
 # Site Footer
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/slp-unr"
+      url: "https://github.com/slp-unr"
     - label: "UNR"
       icon: "fas fa-fw fa-university"
       url: "https://www.unr.edu"
@@ -296,9 +296,17 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: true
-      read_time: true
+      layout: lab-page
+      permalink: /news/:year/:title/
+      author_profile: false
+      read_time: false
       comments: # true
-      share: true
-      related: true
+      share: false
+      related: false
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: lab-page
+      author_profile: false

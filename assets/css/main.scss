@@ -5,6 +5,9 @@ search: false
 
 @charset "utf-8";
 
+@import "slp/tokens"; // lab palette, type and theme variable overrides
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
-@import "custom_overrides"; // local spacing and layout tweaks
+@import "slp/fonts"; // self-hosted Alegreya and Alegreya Sans
+@import "custom_overrides"; // theme-wide overrides (base, masthead, footer)
+@import "slp/components"; // lab layouts and components

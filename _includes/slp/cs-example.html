@@ -1,0 +1,22 @@
+{%- comment -%}
+  Linguistic example (1): a constructed bilingual sentence tagged word by word for language.
+  Data lives in _data/mosaico.yml (example). Optional params: number, caption.
+{%- endcomment -%}
+{%- assign ex = site.data.mosaico.example -%}
+<figure class="ling-ex ling-ex--animate">
+<span class="ling-ex__num" aria-hidden="true">({{ include.number | default: 1 }})</span>
+<div class="ling-ex__body">
+<p class="sr-only">{% for t in ex.tokens %}{{ t[0] }} {% endfor %}</p>
+<div class="ling-ex__tokens" aria-hidden="true">
+{%- assign prev = "" -%}
+{%- for t in ex.tokens -%}
+{%- assign i = forloop.index0 -%}
+{%- if prev != "" and t[1] != prev -%}<span class="cs-switch" style="--i: {{ i }}"></span>{%- endif -%}
+<span class="tok tok--{{ t[1] }}" lang="{{ t[1] }}" style="--i: {{ i }}"><span class="tok__w">{{ t[0] }}</span><span class="tok__t">{{ t[1] }}</span></span>
+{%- assign prev = t[1] -%}
+{%- endfor -%}
+</div>
+<p class="ling-ex__gloss">{{ ex.translation }}</p>
+<figcaption class="ling-ex__caption">{{ include.caption | default: "A constructed example of the bilingual writing MOSAICO studies. Each word is tagged for language (es, en), and dashed rules mark the points where the writer switches." }}</figcaption>
+</div>
+</figure>

@@ -1,10 +1,12 @@
 # main links
 main:
-  - title: "Home"
-    url: /
   - title: "About"
     url: /about/
   - title: "Projects"
     url: /projects/
+  - title: "Internship"
+    url: /internship/
   - title: "News"
     url: /news/
+  - title: "Contact"
+    url: /contact/

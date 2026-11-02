@@ -1,0 +1,73 @@
+/* ==========================================================================
+   SLP Lab design tokens
+   Loaded before Minimal Mistakes so these values replace the theme defaults.
+   Palette taken from the lab logo: indigo and teal bars on a lavender tile.
+   ========================================================================== */
+
+/* Palette */
+$slp-ink: #20223f;          // text and headings
+$slp-indigo: #3d3f97;       // primary, links, Spanish tokens
+$slp-indigo-dark: #2b2d72;  // hover
+$slp-teal: #1f7466;         // secondary, English tokens
+$slp-lavender: #f1f0f9;     // tinted surfaces
+$slp-lavender-deep: #e2dff2;
+$slp-rule: #dad7eb;         // borders and rules
+$slp-muted: #585a76;        // secondary text
+$slp-paper: #ffffff;
+
+/* Type: Alegreya superfamily (Huerta Tipográfica) */
+$slp-serif: "Alegreya", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+$slp-sans: "Alegreya Sans", "Gill Sans", "Gill Sans MT", "Segoe UI", system-ui, sans-serif;
+
+/* Type scale
+   One modular scale (ratio 1.2, minor third) in rem, so a size means the same
+   thing wherever a component sits. Root: 17px on phones/tablets, 18px from 1024px. */
+$fs-xs: 0.8rem;     // annotation tags, masthead subtitle
+$fs-sm: 0.889rem;   // captions, metadata, labels, nav, buttons
+$fs-base: 1rem;     // body text
+$fs-md: 1.2rem;     // lead paragraphs, h3
+$fs-lg: 1.44rem;    // h2
+$fs-xl: 1.728rem;   // page titles
+$fs-2xl: 2.074rem;  // home title
+
+$lh-body: 1.6;
+$lh-lead: 1.5;
+$lh-head: 1.2;
+
+/* Layout */
+$slp-wrap: 1120px;
+$slp-measure: 38rem;  // ~68 characters per line at body size
+
+/* Minimal Mistakes overrides
+   ========================================================================== */
+$doc-font-size: 17px;
+$doc-font-size-medium: 17px;
+$doc-font-size-large: 18px;
+$doc-font-size-x-large: 18px;
+
+$serif: $slp-serif;
+$sans-serif: $slp-sans;
+$sans-serif-narrow: $slp-sans;
+$global-font-family: $slp-serif;
+$header-font-family: $slp-serif;
+$caption-font-family: $slp-sans;
+
+$background-color: $slp-paper;
+$text-color: $slp-ink;
+$muted-text-color: $slp-muted;
+$border-color: $slp-rule;
+$primary-color: $slp-indigo;
+$focus-color: $slp-indigo;
+$info-color: $slp-indigo;
+$code-background-color: $slp-lavender;
+$footer-background-color: $slp-ink;
+
+$link-color: $slp-indigo;
+$link-color-hover: $slp-indigo-dark;
+$link-color-visited: $slp-indigo;
+$masthead-link-color: $slp-ink;
+$masthead-link-color-hover: $slp-indigo;
+$navicon-link-color-hover: $slp-lavender;
+
+$border-radius: 4px;
+$intro-transition: none;

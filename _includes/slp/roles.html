@@ -1,0 +1,10 @@
+{%- comment -%} Internship roles from _data/mosaico.yml {%- endcomment -%}
+<div class="roles">
+{%- for r in site.data.mosaico.roles %}
+<section class="role">
+<h3>{{ r.title }}</h3>
+<p>{{ r.does }}</p>
+<p class="role__fit">Background: {{ r.fit }}</p>
+</section>
+{%- endfor %}
+</div>
